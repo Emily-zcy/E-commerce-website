@@ -1,0 +1,172 @@
+/* 列表页面的样式 */
+.sk {
+    /* 使用绝对定位来固定图片的位置 */
+    position: absolute;
+    top: 40px;
+    left: 185px;
+    height: 32px;
+    border-left: 1px solid #b1191a;
+    padding: 5px 0 0 15px;
+}
+.sk_list li {
+    float: left;
+    /* 有行高的情况下可以不用给高度，因为其父元素的高度也为45px， */
+    line-height: 45px;
+    margin: 0 30px;
+}
+.sk_list li a {
+    font-size: 16px;
+    color: #000;
+    font-weight: 700;
+}
+.sk_list li a:hover {
+    color: #c81523;
+}
+.sk_con li {
+    float: left;
+    line-height: 45px;
+    margin: 0 20px;
+}
+.sk_con li a {
+    font-size: 14px;
+    font-weight: 700;
+    font-family: 'icomoon';
+}
+
+/* 列表页的内容区域 */
+.sk_bd {
+    margin-top: 25px;
+}
+.sk_bd ul {
+    /* 小技巧：既能使一行显示4个li，又不用去掉最后一个li的margin值
+       li元素设置了margin-right之后，每行就放不下4个li，只能放3个
+       如果一行非要显示4个，则只需要将li的父元素宽度设置的足够大即可
+       即设置ul的宽度 */
+    width: 1212px;
+}
+.sk_goods {
+    position: relative;
+    /* li标签需要浮动显示 */
+    float: left;
+    width: 288px;
+    height: 458px;
+    /* transparent被用来作为background-color的一个参数值，用于表示背景透明 */
+    border: 1px solid transparent;
+    /* 上 右 下 左 */
+    margin: 0 12px 15px 0;
+}
+.sk_goods:hover {
+    border: 1px solid #e12228;
+}
+.sk_goods_title {
+    font-size: 14px;
+    color: #666;
+    /* 不加粗 */
+    font-weight: normal;
+    /* 三个值：上 左右 下
+       两个值：上下 左右 */
+    padding: 10px 10px;
+}
+.sk_goods_price {
+    padding: 0 10px;
+}
+.sk_goods_price em {
+    font-size: 22px;
+    color: #e60012;
+}
+.sk_goods_price del {
+    font-size: 14px;
+    font-weight: 700;
+    color: #a4a4a4;
+}
+.sk_goods_progress {
+    padding: 0 10px;
+}
+.bar {
+    /* div是块元素，会与“已售87%”的文字不在同一行，因此需要设置为行内块元素 */
+    display: inline-block;
+    width: 130px;
+    height: 10px;
+    border: 1px solid #b1191a;
+    /* 有inline-block的地方经常会有vertical-align，目的是使行内块元素与文字居中显示 */
+    vertical-align: middle;
+    margin: 0 5px;
+    border-radius: 5px;
+}
+.bar_in {
+    width: 87%;
+    height: 10px;
+    background-color: #f24349;
+}
+.sk_goods_progress em,
+.sk_goods_progress i {
+    color: #f24349;
+}
+.sk_goods_buy {
+    /* 子绝父相 */
+    position: absolute;
+    /* 与父元素底端对齐 */
+    bottom: 0;
+    /* 如果改成定位，则必须要有宽度，不会继承父元素得宽度的 */
+    width: 100%;
+    /* 有定位得话就不需要转换为块元素 */
+    /* a标签属于行内元素，需要转换为块元素才能换行显示
+    display: block; */
+    height: 50px;
+    background-color: #b1191a;
+    color: #fff;
+    /* 水平居中 */
+    text-align: center;
+    /* 垂直居中 */
+    line-height: 50px;
+    font-size: 20px;
+}
+/* 分页器 */
+.page {
+    /* 正常的居中对齐方式：给父元素一个宽度，然后margin:auto就可以水平居中对齐 */
+    /* 分页器的宽度根据不同的要求会有不同的宽度，所以尽量不要给定宽度 */
+    /* 没有宽度的盒子如何居中对齐呢？只要保证盒子里面是文字、行内块、行内元素，设置了text-align都可以水平居中对齐 */
+    margin: 40px 0;
+    /* 里面的文字、行内块、行内元素都可以水平居中对齐 */
+    text-align: center;
+}
+.page_num a {
+    /* a标签是行内元素，没有大小，需要转换为行内块元素 */
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    /* 垂直居中对齐 */
+    line-height: 36px;
+    border: 1px solid #ccc;
+    background-color: #f7f7f7;
+}
+/* 如果只写.pn-prev, .pn_next 则权重会不够，.page_num a的样式会覆盖下面的样式 */
+.page_num .pn-prev, 
+.page_num .pn_next {
+    width: 83px;
+}
+.page_num .current,
+.page_num .dotted {
+    /* 鼠标放上去边框不应该是去掉，否则会掉两像素，应该是变为透明色 */
+    border: 1px solid transparent;
+    background-color: transparent;
+}
+.page_skip input {
+    width: 46px;
+    height: 36px;
+    border: 1px solid #ccc;
+    text-align: center;
+    /* 过渡写在本身上，谁做动画给谁加 */
+    transition: all 0.3s;
+}
+/* 文本框获得焦点后样式发生变化 */
+.page_skip input:focus {
+    width: 88px;
+    border: 1px solid skyblue;
+}
+.page_skip button {
+    width: 54px;
+    height: 36px;
+    border: 1px solid #ccc;
+    background-color: #f7f7f7;
+}

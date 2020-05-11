@@ -1,0 +1,326 @@
+/* 公共样式 */
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+/* 字体图标的声明 */
+@font-face{  /*声明字体 引用字体*/
+    font-family:'icomoon';
+    /* 注意路径的问题 */
+    src:url('../fonts/icomoon.eot');
+    src:url('../fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.woff') format('woff'),
+    url('../fonts/icomoon.ttf')  format('truetype'),
+    url('../fonts/icomoon.svg#SofiaProLight')  format('svg');
+    font-weight:normal;
+    font-style:normal;
+}
+/* 字体图标的引用  注意要避免影响其他盒子里面字体图标的样式*/  
+.fr .icomoon {
+    font-family: 'icomoon';
+    font-size: 16px;
+    line-height: 26px;
+}
+/* 版心 */
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+.style-red {
+    color: #c81623;
+}
+.spacer {
+    width: 1px;
+    height: 12px;
+    background-color: #666;
+    margin: 9px 12px 0;
+}
+/* 顶部快捷导航 */
+.shortcut {
+    height: 31px;
+    background-color: #f1f1f1;
+    /* 行高等于高：垂直居中；行高小于高：文字偏上；行高大于高：文字偏下 */
+    line-height: 31px;   
+}
+/* 顶部导航的li标签全部左浮动，避免使用过多的class样式设置 */
+.shortcut li {
+    float: left;
+}
+/* header 区域*/
+.header {
+    /* 必须要加position属性，否则里面的盒子的父类就不是header了 */
+    position: relative;
+    height: 105px;
+}
+/* 
+logo优化：
+logo里面首先放一个h1标签，目的是为了提权，告诉搜索引擎，这个地方很重要
+h1里面再放一个链接，可以返回首页的，给链接一个大小和logo的背景图片
+链接里面要放文字(网站名称)，为了搜索引擎收录我们，但是文字不要显示出来
+    要用text-indent移到盒子外面(text-indent:-9999px),然后overflow:hidden 溢出隐藏（这是淘宝的做法）
+    直接给font-size:0; 就看不到文字了（这是京东的做法）
+最后给链接一个title，这样鼠标放到logo上，就可以看到提示文字了
+*/
+.logo {
+    position: absolute;
+    /* 距离父类顶部距离为25px */
+    top: 25px;
+    left: 0;
+    width: 175px;
+    height: 55px;
+}
+.logo a {
+    display: block;
+    /* overflow: hidden; */
+    width: 175px;
+    height: 55px;
+    background: url(../img/logo.png) no-repeat;
+    /* text-indent: -9999px; */
+    font-size: 0;
+}
+/* 搜索框的盒子不用给定宽度，因为input框会撑开盒子 */
+.search {
+    position: absolute;
+    top: 25px;
+    left: 348px;
+}
+.text {
+    float: left;
+    width: 445px;
+    height: 32px;
+    border: 2px solid #b1191a;
+    /* padding也会撑开一定的像素，此时宽度减少10px就可以保持总宽度不变 */
+    padding-left: 10px;
+    /* 字体的颜色 */
+    color: #ccc;   
+}
+/* 搜索框和按钮之间会有一定的间隙，只能通过浮动的方式使它们挨在一起
+要浮动的话两个都要一起浮动 */
+.btn {
+    float: left;
+    width: 82px;
+    height: 36px;
+    background-color: #b1191a;
+    border: none;
+    font-size: 16px;
+    color: #fff;
+}
+.hotwords {
+    position: absolute;
+    top: 65px;
+    left: 348px;
+}
+.hotwords a {
+    margin: 0 10px;
+}
+.shopcar {
+    position: absolute;
+    top: 25px;
+    /* 右对齐 */
+    right: 64px;
+    width: 138px;
+    height: 34px;
+    border: 1px solid #dfdfdf;
+    background-color: #f7f7f7;
+    line-height: 34px;
+    text-align: center;
+}
+.car {
+    font-family: 'icomoon';
+    color: #da5555;
+}
+.arrow {
+    font-family: 'icomoon';
+    margin-left: 5px;
+}
+/* count 统计部份  要用绝对定位做，
+不要给宽度，因为可能买的件数比较多，让件数撑开就行，给一个高度
+一定注意左下角不是圆角，其余三个是圆角 */
+.count {
+    position: absolute;
+    /* 往盒子上方外面偏5px */
+    top: -5px;
+    /* 应该是左侧对齐，文字才能往右走显示 */
+    left: 100px;
+    background-color: #e60012;
+    height: 14px;
+    padding: 0 3px;
+    /* 默认继承父元素的行高（shopcar的行高34px需要自己设置行高覆盖掉父元素） */
+    line-height: 14px;
+    color: #fff;
+    /* 左上角 右上角 右下角 左下角 */
+    border-radius: 7px 7px 7px 0;
+}
+/* nav start */
+.nav {
+    height: 45px;
+    border-bottom: 2px solid #b1191a;
+}
+.dropdown {
+    width: 209px;
+    height: 45px;
+    background-color: pink;
+}
+.dropdown .dt {
+    /* 和父元素一样大 */
+    width: 100%;
+    height: 100%;
+    background-color: #b1191a;
+    font-size: 19px;
+    color: #fff;
+    text-align: center;
+    /* 和父元素一样高，则居中显示 */
+    line-height: 45px;
+}
+.dropdown .dd {
+    width: 100%;
+    height: 465px;
+    background-color: #c81623;
+    /* 避免压住那条红线 */
+    margin-top: 2px;
+}
+.menu_item {
+    height: 31px;
+    line-height: 31px;
+    margin-left: 1px;
+    /* 上下0px 左右10px */
+    padding: 0 10px;
+    /* css3动画：鼠标移入的时候使文字往左移动20个像素 */
+    transition: padding-left 0.5s;
+}
+.menu_item:hover{
+    background-color: #fff;
+    padding-left: 20px;
+}
+/* 鼠标经过了li，里面的a变颜色 i不变 */
+.menu_item:hover a {
+    color: #c81623;
+}
+.menu_item a {
+    font-size: 14px;
+    color: #fff;
+}
+.menu_item i {
+    float: right;
+    font-family: 'icomoon';
+    font-size: 18px;
+    color: #fff;
+}
+.navitems {
+    margin-left: 10px;
+}
+.navitems li {
+    float: left;
+}
+.navitems li a {
+    /* a属于行内元素，没有大小，需要转换为块元素 */
+    display: block;
+    /* 不需要给宽度，a里面的字撑开就行 */
+    height: 45px;
+    padding: 0 25px;
+    line-height: 45px;
+    font-size: 16px;
+}
+/* footer start */
+.footer {
+    /* 总高度为height+padding-top */
+    height: 386px;
+    background-color: #f5f5f5;
+    padding-top: 30px;
+}
+.mod_service {
+    height: 79px;
+    border-bottom: 1px solid #ccc;
+}
+.mod_service li {
+    float: left;
+    width: 240px;
+    height: 79px;
+}
+.mod_service_icon{
+    /* i是行内元素，没有大小，按常规来说要转换为块元素 但是浮动的盒子可以直接给大小，不需要转换 */
+    float: left;
+    width: 50px;
+    height: 50px;
+    margin-left: 35px;
+}
+.mod_service_zheng {
+    /* 正品保障 */
+    background: url(../img/zheng.png) no-repeat;
+}
+.mod_service_tit {
+    float: left;
+    margin-left: 5px;
+}
+.mod_service_tit h5 {
+    margin-top: 5px;
+}
+.mod_service_kuai {
+    /* 急速物流 */
+    background: url(../img/kuai.png) no-repeat;
+}
+.mod_service_bao {
+    /* 无忧售后 */
+    background: url(../img/bao.png) no-repeat;
+}
+.mod_service_te {
+    /* 特色服务 */
+    background: url(../img/te.png) no-repeat;
+}
+.mod_service_bang {
+    /* 帮助中心 */
+    background: url(../img/bang.png) no-repeat;
+}
+.mod_help {
+    height: 187px;
+    border-bottom: 1px solid #ccc;
+}
+.mod_help_item {
+    float: left;
+    /* 总宽度为150+50px */
+    width: 150px;
+    /* 上 右 下 左 */
+    padding: 20px 0 0 50px;
+}
+.mod_help_item dt {
+    height: 25px;
+    font-size: 16px;
+}
+.mod_help_item dd {
+    height: 22px;
+}
+.mod_help_app dt,
+.mod_help_app p {
+    padding-left: 15px;
+}
+.mod_help_app img {
+    margin: 5px 0;
+}
+
+.mod_copyright {
+    /* 下面三句是使div里面的元素居中并在底部显示 */
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-align: end;
+}
+
+.mod_copyright_links {
+    height: 40px;
+}
+.mod_copyright_links li {
+    /* 注意，li是浮动的元素，撑不开上级父元素盒子，所以父盒子最好要有高度值 */
+    float: left;
+    padding: 0 2px;
+}
+.mod_copyright_info {
+    height: 55px;
+}
+.mod_copyright_info li {
+    float: left;
+    padding: 0 2px;
+}
+.jing {
+    margin-left: 235px;
+}

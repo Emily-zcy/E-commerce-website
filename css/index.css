@@ -1,0 +1,330 @@
+.main {
+    width: 980px;
+    height: 455px;
+    margin-left: 219px;
+    margin-top: 10px;
+}
+.focus {
+    position: relative;
+    width: 720px;
+    height: 455px;
+}
+.arrow-l,
+.arrow-r {
+    /* 子绝父相：子元素绝对定位，则父元素必须是相对定位 */
+    position: absolute;
+    /* 下面两句代码为水平居中的方式 */
+    /* 定位到父元素的居中位置 */
+    top: 50%;
+    /* 还需要往上走自己高度的一半值 */
+    margin-top: -20px;
+    /* a标签没有大小，常规来说不能给定宽高 但是浮动下的绝对定位的元素可以给定大小*/
+    width: 24px;
+    height: 40px;
+    /* 背景设置为半透明状 */
+    background: rgba(0, 0, 0, .3);
+    /* 文字水平居中用text-align  垂直居中用line-height */
+    text-align: center;
+    line-height: 40px;
+    color: #fff;
+    font-family: 'icomoon';
+    font-size: 18px;
+}
+.arrow-r {
+    /* 指定盒子参照相对物右边界向左偏移 */
+    right: 0;
+}
+.circle {
+    position: absolute;
+    bottom: 10px;
+    left: 50px;
+}
+.circle li {
+    float: left;
+    width: 8px;
+    height: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    margin: 0 3px;
+    /* 使li变成圆形 */
+    border-radius: 50%;
+    /* 鼠标经过时显示为小手 */
+    cursor: pointer;
+}
+.current {
+    background-color: #fff;
+}
+.newsflash {
+    width: 250px;
+    height: 455px;
+}
+.news {
+    height: 163px;
+    border: 1px solid #ccc;
+}
+.news-hd {
+    height: 32px;
+    border-bottom: 1px dotted #ccc;
+    font-size: 14px;
+    line-height: 32px;
+     /* 没有给定宽度，所以不用担心会撑开盒子 */
+     padding: 0 15px;
+    
+}
+.news-hd a {
+    float: right;
+    font-size: 12px;
+    font-family: 'icomoon';
+}
+.news-bd {
+    /* 上 右 下 左 */
+    padding: 10px 0 0 15px;
+}
+.news-bd li {
+    height: 23px;
+}
+.lifeservice {
+    /* 默认宽度是250px */
+    overflow: hidden;
+    height: 208px;
+    border: 1px solid #ccc;
+    /* 取消上边框 */
+    border-top: none;
+}
+.lifeservice ul {
+    /* lifeservice盒子总宽度为250px，所以一行放不了4个li盒子，
+    只要保证li的父元素ul一行可以放下4个li盒子就可以了
+    子盒子可以比父盒子大很多，即ul的宽度可以比父元素的宽度大 */
+    /* 但是一行四个li盒子会超出父盒子的宽度，会露出几像素，只需要在父元素内进行溢出隐藏处理即可 */
+    width: 252px;
+}
+.lifeservice li {
+    position: relative;
+    float: left;
+    width: 62px;
+    height: 70px;
+    /* 对每个小li只给右边框和下边框 */
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+.lifeservice li a {
+    /* a标签应该和父元素li一样大 */
+    display: block;
+    /* 解决i标签增加的margin而引起的a标签的外边距塌陷合并的问题：
+    即当给内盒子i的margin：10px时，现象为：外面的a盒子的margin也变成了10px，而i标签相对于a标签并没有margin的距离 */
+    /*border:1px solid black  第二种解决办法：给外面的a盒子设置一个边框*/
+    /* 这句代码可以理解为让浏览器显示该a盒子的时候检查一下是否有问题，如果有问题，浏览器来解决 */
+    overflow: hidden;
+    height: 100%;
+}
+.lifeservice li p {
+    text-align: center;
+}
+.hot {
+    /* 子绝父相 */
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 12px;
+    height: 15px;
+    background: url(../img/jian.jpg) no-repeat;
+}
+.service_ico {
+    /* a和i是行内元素，没有大小，必须转换为块元素 */
+    display: block;
+    width: 24px;
+    height: 24px;
+    /* 上下给个边距，左右居中对齐 */
+    margin: 10px auto;
+}
+.service_ico_huafei {
+    background: url(../img/huafei.png) no-repeat;
+}
+.service_ico_jipiao {
+    background: url(../img/jipiao.png) no-repeat;
+}
+.service_ico_dianyingpiao {
+    background: url(../img/dianyingpiao.png) no-repeat;
+}
+.service_ico_youxi {
+    background: url(../img/youxi.png) no-repeat;
+}
+.service_ico_caipiao {
+    background: url(../img/caipiao.png) no-repeat;
+}
+.service_ico_jiayouka {
+    background: url(../img/jiayouka.png) no-repeat;
+}
+.service_ico_jiudian {
+    background: url(../img/jiudian.png) no-repeat;
+}
+.service_ico_huochepiao {
+    background: url(../img/huochepiao.png) no-repeat;
+}
+.service_ico_zhongchou {
+    background: url(../img/zhongchou.png) no-repeat;
+}
+.service_ico_licai {
+    background: url(../img/licai.png) no-repeat;
+}
+.service_ico_lipinka {
+    background: url(../img/lipinka.png) no-repeat;
+}
+.service_ico_baitiao {
+    background: url(../img/baitiao.png) no-repeat;
+}
+.bargin {
+    height: 75px;
+    margin-top: 5px;
+}
+
+/* 推荐模块 */
+.recommend {
+    height: 163px;
+    margin-top: 10px;
+}
+.recom-hd {
+    width: 200px;
+    height: 163px;
+    background-color: #5c5251;
+    text-align: center;
+}
+.recom-hd h3 {
+    font-size: 18px;
+    color: #fff;
+    /* 不加粗 */
+    font-weight: normal;
+}
+.recom-hd img {
+    margin: 30px 0 10px 0;
+}
+.recom-bd {
+    width: 1000px;
+    height: 163px;
+    background-color: #ebebeb;
+}
+.recom-bd li {
+    float: left;
+    width: 249px;
+    height: 145px;
+    margin-top: 10px;
+    border-right: 1px solid #ccc;
+}
+/* 直接这样改不起作用，会被划掉，原因是上面样式的权重比last权重大 */
+/* .last {
+    border-right: none;
+} */
+.recom-bd .last {
+    /* 这样改权重就会增大 */
+    border-right: none;
+}
+
+/* 楼层区 floor */
+.box-hd {
+    height: 30px;
+    border-bottom: 2px solid #c81623;
+    margin-top: 25px;
+}
+.box-hd h3 {
+    float: left;
+    font-size: 18px;
+    color: #c81623;
+}
+.tab-list {
+    float: right;
+    line-height: 30px;
+}
+.tab-list li {
+    float: left;
+}
+.tab-list li a {
+    margin: 0 15px;
+}
+.box-bd {
+    height: 360px;
+}
+.w210 {
+    width: 210px;
+    background-color: #f9f9f9;
+}
+.w330 {
+    width: 330px;
+}
+.w219 {
+    width: 219px;
+    border-right: 1px solid #ccc;
+}
+.tab-con li {
+    /* 这个是后代选择器，里面的所有li标签，包括其子孙后代都会左浮动，
+    所以.tab-con-list里面的li标签自动左浮动 */
+    float: left;
+    height: 360px;
+}
+.tab-con-item {
+    border-bottom: 1px solid #ccc;
+}
+.tab-con-list {
+    /* 父元素没有高度，子元素又是浮动的，所以父元素只是一条线，增加了margin值也没有实现想要的效果
+    解决办法如下：
+    1，如果该盒子不设置高度，就应该清除浮动。
+    2，如果该盒子设置了高度，此时就应该考虑溢出时的处理效果！
+    3，如果该盒子设置了高度，则里面盒子的浮动，清不清除都无关紧要。
+    清除浮动的三个方法：
+    1.设置父盒子的overflow属性为hidden
+    2.在父盒子内部的末尾添加一个“清除浮动”的空盒子
+    3.给父盒子的末尾添加一个“清除浮动”的伪元素（::after） */
+     overflow: hidden;
+    margin-bottom: 15px;
+}
+.tab-con-list li {
+    width: 86px;
+    height: 32px;
+    line-height: 32px;
+    border-bottom: 1px solid #ccc;
+    margin-left: 10px;
+    text-align: center;
+}
+.box-bd li {
+    /* 动画的过程会压住li标签的边框线，使用溢出隐藏来解决 */
+    overflow: hidden;
+}
+/* 下面两个样式是为了实现一个动画：鼠标移入到图片，则往右移动8个像素，鼠标移出又还原 */
+.box-bd img {
+    /* 使用css3的transition过渡效果会更佳 
+    过渡写到本身上，谁做动画加给谁 */
+    /* all表示所有的属性都做动画，并在0.2s内完成 */
+    transition: all 0.2s;
+}
+.box-bd img:hover {
+    margin-left: 8px;
+}
+
+/* 电梯导航 */
+.fixedtool {
+    /* 只需给定宽度，高度不用给，子元素撑开 */
+    /* 固定定位 */
+    position: fixed;
+    /* 如果只给定距离top的值，如果缩放网页，则可以明显看到电梯导航是挨着浏览器左侧固定的，
+    事实上我们需要电梯导航是挨着左侧导航nav固定的 */
+    top: 255px;
+    /* 左侧正处在浏览器正中间 */
+    left: 50%;
+    /* 在往左偏移半个版心和一个左侧导航nav的位置 */
+    margin-left: -676px;
+    width: 66px;
+    background-color: #fff;
+}
+.fixedtool li {
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    font-size: 12px;
+    border-bottom: 1px solid #ccc;
+    /* 鼠标变成小手 */
+    cursor: pointer;
+}
+.fixedtool .current {
+    background-color: #c81623;
+    /* 文字的颜色 */
+    color: #fff;
+}
+
